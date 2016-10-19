@@ -5,7 +5,6 @@ using System;
 
 public class script2 : MonoBehaviour, IDropHandler
 {
-
     public GameObject item
     {
         get
@@ -20,6 +19,11 @@ public class script2 : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        if (!item)
+        {
+            // Transform prevParent = script1.itemBeingDragged.transform.parent;
+            script1.itemBeingDragged.transform.SetParent(transform);
+            script1.itemBeingDragged.transform.position = transform.position;
+        }
     }
 }

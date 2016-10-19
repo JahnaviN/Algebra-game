@@ -5,7 +5,6 @@ using System;
 
 public class script1 : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
     public static GameObject itemBeingDragged;
     Vector3 startPosition;
     Transform startParent;
