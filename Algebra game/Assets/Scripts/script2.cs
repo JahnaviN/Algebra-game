@@ -2,10 +2,11 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.UI;
 
 public class script2 : MonoBehaviour, IDropHandler
 {
-    public GameObject item
+    /*public GameObject item
     {
         get
         {
@@ -25,5 +26,22 @@ public class script2 : MonoBehaviour, IDropHandler
             script1.itemBeingDragged.transform.SetParent(transform);
             script1.itemBeingDragged.transform.position = transform.position;
         }
+    }*/
+
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        /*if (!item)
+        {
+            Debug.Log(item.ToString());
+            item = script1.itemBeingDragged.transform.GetComponent<Image>().sprite;
+            //script1.itemBeingDragged.transform.SetParent(transform);
+            //script1.itemBeingDragged.transform.position = transform.position;
+        }*/
+
+        Image img = transform.GetChild(0).GetComponent<Image>();
+        img.sprite = script1.itemBeingDragged.transform.GetComponent<Image>().sprite;
+        script1.itemBeingDragged.transform.position = script1.itemBeingDragged.transform.parent.position;
+
     }
 }
